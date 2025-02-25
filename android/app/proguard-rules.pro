@@ -1,0 +1,6 @@
+-keep class io.flutter.app.** { *; }
+-keep class io.flutter.plugin.** { *; }
+-keep class io.flutter.plugins.** { *; }
+-keep class com.google.firebase.** { *; }
+-keep class com.example.algo_v1.MainActivity { *; }
+-dontwarn kotlin.**

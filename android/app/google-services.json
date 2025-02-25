@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "818012352661",
+    "project_id": "algolab-v1-8d47a",
+    "storage_bucket": "algolab-v1-8d47a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818012352661:android:a0b9587eda646d3630eb9c",
+        "android_client_info": {
+          "package_name": "com.example.algo_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwOI4UPvESZEqFSV6wk8NxCC3iBAZGXA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

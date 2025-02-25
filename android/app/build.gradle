@@ -1,0 +1,61 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.gms.google-services' // ✅ بدون `version` و `apply false`
+}
+
+android {
+    namespace = "com.example.algo_v1"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.algo_v1"
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // ✅ تمكين ProGuard لتقليل قابلية قراءة الكود
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // ✅ تعطيل تصحيح الأخطاء في النسخة النهائية
+            debuggable false
+
+            // ✅ توقيع النسخة النهائية
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    // ✅ استيراد Firebase BoM
+    implementation platform("com.google.firebase:firebase-bom:33.9.0")
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // ✅ إضافة Firebase Core
+    implementation "com.google.firebase:firebase-auth"
+    implementation "com.google.firebase:firebase-firestore"
+}
+
+// ✅ تأكد أن هذا السطر في **آخر الملف**
+apply plugin: 'com.google.gms.google-services'
+
+flutter {
+    source = "../.."
+}
