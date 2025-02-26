@@ -27,9 +27,19 @@ android {
         versionName = flutter.versionName
     }
 
+    // ✅ إضافة بيانات التوقيع (Signing Configs)
+    signingConfigs {
+        release {
+            storeFile file(MYAPP_STORE_FILE)
+            storePassword MYAPP_STORE_PASSWORD
+            keyAlias MYAPP_KEY_ALIAS
+            keyPassword MYAPP_KEY_PASSWORD
+        }
+    }
+
     buildTypes {
         release {
-            // ✅ تمكين ProGuard لتقليل قابلية قراءة الكود
+            // ✅ تمكين ProGuard لتقليل حجم التطبيق
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,8 +47,8 @@ android {
             // ✅ تعطيل تصحيح الأخطاء في النسخة النهائية
             debuggable false
 
-            // ✅ توقيع النسخة النهائية
-            signingConfig = signingConfigs.debug
+            // ✅ استخدام التوقيع الصحيح للـ release
+            signingConfig signingConfigs.release
         }
     }
 }
